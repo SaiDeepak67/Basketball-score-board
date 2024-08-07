@@ -1,0 +1,191 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Scoreboard</title>  
+    <style>  
+        #background {  
+            background-color: rgb(27, 27, 131);  
+            height: 100vh;  
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+        }  
+
+        #box {  
+            background-color: rgb(6, 6, 66);  
+            height: 43vh; 
+            width: 43vh; 
+            border-radius: 10%;  
+            box-shadow: 10px 10px black;  
+            display: flex;  
+            flex-direction: column;  
+            align-items: center;  
+            justify-content: center;  
+        }  
+
+        #scorebox {  
+            display: flex;  
+            justify-content: center;  
+            margin-top: 2vh; 
+        }  
+
+        .score-container {  
+            display: flex;  
+            flex-direction: column;  
+            align-items: center;  
+            margin: 0 10px;
+            margin-bottom: 1cm;  
+        }  
+
+        #box2, #box3 {  
+            height: 13vh; 
+            width: 17vh;    
+            background-color: black;  
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+        }  
+
+        #score1, #score2 {  
+            text-align: center;  
+            color: rgb(241, 246, 250);  
+            font-size: 2em;   
+            font-style: italic;  
+        }  
+
+        .score-header {  
+            color: aliceblue;  
+            text-align: center;  
+            font-size: larger;
+        }  
+        button{
+            margin-top: 0.3cm;
+            border-radius: 5cm;
+            font-size: larger;
+            box-shadow: 5px 5px black;
+            background-color: rgb(27, 27, 131);
+            cursor: pointer;
+        }
+        #announce{
+            font-size: 5cm;
+            
+            
+        }
+    </style>  
+</head>  
+<body id="background"> 
+    <div>
+        <p id="announce"></p>
+    </div>
+
+    
+    <div id="box">  
+        <span>
+        <h2 class="score-header" style="font-size: 1cm; position: static;">Score Box</h2> </span> 
+        <div id="scorebox">   
+            <div class="score-container">  
+                <h4 class="score-header">Home</h4>   
+                <div id="box2">  
+                    <p id="score1">0</p>  
+                </div> 
+                <div>
+                 <button onclick="add1()">+1</button>
+                 <button onclick="add2()">+2</button>
+                 <button onclick="add3()">+3</button> 
+               </div>
+            </div>  
+            <div class="score-container">  
+                <h4 class="score-header">Guest</h4>   
+                <div id="box3">  
+                    <p id="score2">0</p>  
+                </div>  
+                <div>
+                    <button onclick="guest1()">+1</button>
+                    <button onclick="guest2()">+2</button>
+                    <button onclick="guest3()">+3</button> 
+                  </div>
+            </div> 
+            <div> 
+            
+        </div>  
+        
+    </div>  
+    <button onclick="zero()">reset</button>
+    <button onclick="declare()">declare</button>
+            </div>
+
+          
+            
+</body>  
+<script>
+ let score1=document.getElementById("score1")
+
+    function add1()
+    {
+       score1.innerText =parseInt (score1.innerText)+1
+        
+    }
+    
+    function add2()
+    {
+       score1.innerText =parseInt (score1.innerText)+2
+        
+    }
+    
+    function add3()
+    {
+       score1.innerText =parseInt (score1.innerText)+3
+        
+    }
+ let score2=document.getElementById("score2")
+    
+ function guest1()
+    {
+       score2.innerText =parseInt (score2.innerText)+1
+        
+    }
+    
+    function guest2()
+    {
+       score2.innerText =parseInt (score2.innerText)+2
+        
+    }
+    
+    function guest3()
+    {
+       score2.innerText =parseInt (score2.innerText)+3
+        
+    }
+    let a=document.getElementById("announce")
+
+    function zero()
+    {
+        score1.innerText=0
+        score2.innerText=0
+        a.innerText=""
+
+       
+    }
+
+    function declare()
+    {
+
+       if(score1.innerText>score2.innerText)
+       {
+        a.innerText="HOME TEAM IS THE WINNER!!!"
+       }
+       else if(score2.innerText>score1.innerText)
+       {
+        a.innerText="GUEST TEAM IS THE WINNER!!!"
+       }
+       else
+       {
+        a.innerText="ITS AA TIEEEE!!!"
+       }
+
+        
+    }
+</script>
+</html>
